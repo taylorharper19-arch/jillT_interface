@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jill T — Beat Soundboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1>Jill T</h1>
+      <span class="tagline">Beat Soundboard</span>
+      <div class="controls">
+        <label class="control control-toggle">
+          <input type="checkbox" id="paused" aria-label="Pause sound">
+          <span>Pause</span>
+        </label>
+        <label class="control">
+          <span>Master</span>
+          <input type="range" id="masterVol" min="0" max="100" value="85">
+        </label>
+        <label class="control">
+          <span>BPM</span>
+          <input type="number" id="bpm" min="60" max="180" value="120">
+        </label>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="pad-grid" id="padGrid" role="group" aria-label="Sound pads">
+        <!-- Pads 1–16 filled by JS -->
+      </section>
+
+      <aside class="sidebar">
+        <div class="panel load-panel">
+          <h2>Load custom sound</h2>
+          <p>Assign a sample to any pad.</p>
+          <input type="file" id="soundFile" accept="audio/*" hidden>
+          <button type="button" id="pickFile" class="btn">Choose file</button>
+          <span id="fileName" class="file-name"></span>
+          <div class="assign-row">
+            <label>Pad</label>
+            <select id="assignPad">
+              <option value="">Select pad…</option>
+            </select>
+            <button type="button" id="assignBtn" class="btn btn-ghost" disabled>Assign</button>
+          </div>
+        </div>
+        <div class="panel record-panel">
+          <h2>Record &amp; save</h2>
+          <p>Record your pad hits, play back, then save as project or WAV.</p>
+          <div class="record-actions">
+            <button type="button" id="recordBtn" class="btn btn-small">Record</button>
+            <button type="button" id="stopRecordBtn" class="btn btn-small btn-ghost" disabled>Stop</button>
+            <button type="button" id="playRecordBtn" class="btn btn-small btn-ghost" disabled>Play</button>
+          </div>
+          <p id="recordStatus" class="record-status">No recording.</p>
+          <div class="save-actions">
+            <button type="button" id="saveProjectBtn" class="btn btn-small btn-ghost" disabled>Save project</button>
+            <button type="button" id="exportWavBtn" class="btn btn-small btn-ghost" disabled>Export WAV</button>
+          </div>
+          <input type="file" id="loadProjectFile" accept=".json" hidden>
+          <button type="button" id="loadProjectBtn" class="btn btn-small btn-ghost">Load project</button>
+        </div>
+        <div class="panel keys-panel">
+          <h2>Shortcuts</h2>
+          <p>1–9, 0, A–F trigger pads 1–16. Space: stop all.</p>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <button type="button" id="stopAll" class="btn btn-small">Stop all</button>
+    </footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

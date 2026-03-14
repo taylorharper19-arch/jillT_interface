@@ -1,0 +1,10 @@
+{
+  "name": "jillTbeatz",
+  "short_name": "jillTbeatz",
+  "description": "Cyber Beat Board — pads, record, loop, airhorn",
+  "start_url": "./jillTbeatz.html",
+  "display": "standalone",
+  "background_color": "#050508",
+  "theme_color": "#050508",
+  "orientation": "portrait-primary"
+}
